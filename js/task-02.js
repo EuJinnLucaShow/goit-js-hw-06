@@ -1,5 +1,5 @@
 // Отримання порожнього елемента <ul>
-const ul = document.getElementById('ingredients');
+const ul = document.querySelector('#ingredients');
 
 const ingredients = [
   'Potatoes',

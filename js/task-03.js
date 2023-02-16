@@ -12,3 +12,19 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+// Отримання порожнього елемента <ul>
+const gallery = document.querySelector('.gallery');
+
+// Використовуем масив об'єктів images для створення елементів <img>, вкладених в <li>
+const imageHTML = images.map(image => `
+  <li>
+    <img src="${image.url}" alt="${image.alt}" width="100%";>
+  </li>
+`);
+
+// Додавання HTML-коду зображення до галереї за допомогою insertAdjacentHTML()
+gallery.insertAdjacentHTML('beforeend', imageHTML.join(''));
+
+// Застосувати стилі CSS до галереї
+gallery.classList.add('image-gallery');
