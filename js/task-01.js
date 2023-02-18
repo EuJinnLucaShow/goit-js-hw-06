@@ -6,8 +6,15 @@ const categoryItems = categoriesList.querySelectorAll("li.item");
 console.log(`Total number of categories: ${categoryItems.length}`);
 
 // Перебираємо кожен елемент категорії та виводимо його назву та кількість елементів
+// categoryItems.forEach((category) => {
+//   const title = category.querySelector("h2").textContent;
+//   const numElements = category.querySelectorAll("li").length;
+//   console.log(`${title}: ${numElements} elements`);
+// });
+
+// альтернативний варіант за допомогою DOM-дерева
 categoryItems.forEach((category) => {
-  const title = category.querySelector("h2").textContent;
-  const numElements = category.querySelectorAll("li").length;
-  console.log(`${title}: ${numElements} elements`);
+  const title = category.firstElementChild;
+  const numElements = category.lastElementChild.children;
+  console.log(`${title.textContent}: ${numElements.length} elements`);
 });
