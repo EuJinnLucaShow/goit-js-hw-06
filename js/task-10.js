@@ -1,33 +1,31 @@
 // Отримання необхідних елементів
+const controls = document.querySelector('#controls');
 const input = document.querySelector('input[type="number"]');
 const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
 const boxesContainer = document.querySelector('#boxes');
 
+
 // Додавання слухачів подій до кнопок
-createBtn.addEventListener('click', () => createBoxes(input.value));
+createBtn.addEventListener('click', () => { createBoxes(input.value) });
 destroyBtn.addEventListener('click', destroyBoxes);
 
 // Функція для створення boxes
-function createBoxes(amount) {
-
-// Очищає всі наявні boxes
-  destroyBoxes()
-  
-  // Створення boxes та додавання їх до контейнера
+function createBoxes(amount) {  
+  // Створення boxes та додавання їх до container
   let size = 30;
   for (let i = 0; i < amount; i++) {
     const box = document.createElement('div');
     box.style.width = `${size}px`;
     box.style.height = `${size}px`;
     box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.append(box);
+    boxesContainer.appendChild(box);
     size += 10;
   }
 }
 
 // Функція знищення boxes
-function destroyBoxes() {
+function destroyBoxes() {  
   while (boxesContainer.firstChild) {
     boxesContainer.removeChild(boxesContainer.firstChild);
   }
